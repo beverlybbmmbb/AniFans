@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   VARIABLES & COLORS
+   ========================= */
+:root {
+    --cream: #fdfaf4;
+    --terracotta: #c24e30;
+    --forest: #2e6b2e;
+    --parchment: #f0e6cc;
+    --ink: #2d1f0e;
+    --gold: #d4a373;
+}
+
+* {
+    @apply transition-colors duration-300;
+}
+
+/* Base Styles */
+body {
+    @apply bg-cream text-ink font-sans;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.font-display {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Color Classes */
+.bg-cream { @apply bg-[#fdfaf4]; }
+.bg-terracotta { @apply bg-[#c24e30]; }
+.bg-forest { @apply bg-[#2e6b2e]; }
+.bg-parchment { @apply bg-[#f0e6cc]; }
+.text-ink { @apply text-[#2d1f0e]; }
+.text-gold { @apply text-[#d4a373]; }
+.text-terracotta { @apply text-[#c24e30]; }
+
+/* Tailwind Color Utilities */
+@layer utilities {
+    .cream { @apply #fdfaf4; }
+    .terracotta { @apply #c24e30; }
+    .forest { @apply #2e6b2e; }
+    .parchment { @apply #f0e6cc; }
+    .ink { @apply #2d1f0e; }
+    .gold { @apply #d4a373; }
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(194, 78, 48, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(194, 78, 48, 0.8);
+    }
+}
+
+@keyframes cinematic-hover {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        transform: scale(1.05) translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-up {
+    animation: fade-up 0.6s ease-out;
+}
+
+.animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+.animate-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+.animate-cinematic-hover:hover {
+    animation: cinematic-hover 0.5s ease-out forwards;
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+
+/* Buttons */
+@layer components {
+    .btn {
+        @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer;
+    }
+
+    .btn-primary {
+        @apply bg-terracotta text-cream hover:bg-opacity-90 shadow-lg hover:shadow-xl;
+    }
+
+    .btn-secondary {
+        @apply bg-forest text-cream hover:bg-opacity-90;
+    }
+
+    .btn-outline {
+        @apply border-2 border-terracotta text-terracotta hover:bg-terracotta hover:text-cream;
+    }
+
+    .btn-ghost {
+        @apply text-terracotta hover:bg-parchment;
+    }
+
+    /* Cards */
+    .card {
+        @apply bg-cream border border-terracotta/10 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300;
+    }
+
+    .card:hover {
+        @apply translate-y-[-4px];
+    }
+
+    /* Movie Cards */
+    .movie-card {
+        @apply relative overflow-hidden rounded-lg group;
+    }
+
+    .movie-card img {
+        @apply w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110;
+    }
+
+    .movie-card-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4;
+    }
+
+    /* Glass Effect */
+    .glass {
+        @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-lg;
+    }
+
+    /* Hero Section */
+    .hero {
+        @apply min-h-screen flex items-center justify-center text-center px-6;
+        background: linear-gradient(135deg, #fdfaf4, #f0e6cc);
+    }
+
+    .hero-title {
+        @apply font-display text-6xl md:text-7xl font-bold text-ink mb-6;
+    }
+
+    .hero-subtitle {
+        @apply text-xl md:text-2xl text-ink/70 mb-8 max-w-2xl mx-auto;
+    }
+
+    /* Section Container */
+    .section {
+        @apply py-20 px-6;
+    }
+
+    .section-title {
+        @apply font-display text-4xl md:text-5xl font-bold text-ink mb-4;
+    }
+
+    .section-subtitle {
+        @apply text-lg text-ink/60 mb-12;
+    }
+
+    /* Grid Layout */
+    .grid-cols-auto {
+        @apply grid gap-6 md:gap-8;
+    }
+
+    /* Stars Rating */
+    .stars {
+        @apply inline-flex gap-1;
+    }
+
+    .star {
+        @apply text-gold text-xl;
+    }
+
+    /* Badge */
+    .badge {
+        @apply inline-block px-3 py-1 bg-terracotta/20 text-terracotta rounded-full text-xs font-medium;
+    }
+
+    .badge-success {
+        @apply bg-green-100 text-green-700;
+    }
+
+    .badge-warning {
+        @apply bg-yellow-100 text-yellow-700;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    .hero-title {
+        @apply text-4xl;
+    }
+
+    .hero-subtitle {
+        @apply text-lg;
+    }
+
+    .section-title {
+        @apply text-3xl;
+    }
+}
+
+/* Navbar Padding Fix */
+body {
+    padding-top: 70px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fdfaf4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c24e30;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2e6b2e;
+}
