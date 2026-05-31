@@ -15,22 +15,21 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(User $user)
-    {
-        $user->load(['reviews.movie', 'favorites', 'triviaResults']);
+public function show(User $user)
+{
+    $user->load([
+        'reviews.movie',
+        'favorites.movie',
+        'triviaResults'
+    ]);
 
-        if (request()->wantsJson()) {
-            return response()->json($user);
-        }
-
-        return view('pages.perfil', compact('user'));
-    }
-
+    return view('pages.perfil', compact('user'));
+}
     public function edit()
     {
         $user = Auth::user();
 
-        return view('pages.profile-edit', compact('user'));
+        return view('pages.perfil-edit', compact('user'));
     }
 
     public function update(Request $request)

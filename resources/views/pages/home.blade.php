@@ -1,193 +1,137 @@
-{{-- resources/views/pages/home.blade.php --}}
-
 @extends('layouts.app')
 
 @section('content')
 
-{{-- HERO --}}
-<section class="relative overflow-hidden min-h-screen flex items-center justify-center px-6">
+{{-- ═══════════════════════════════════════════
+     HERO VIDEO
+════════════════════════════════════════════ --}}
+<section class="relative h-screen overflow-hidden bg-black text-white flex items-center justify-center text-center">
 
-    {{-- FONDO --}}
-    <div class="absolute inset-0 bg-gradient-to-br from-[#fdfaf4] via-[#f6edd8] to-[#e8d49a]"></div>
+    {{-- VIDEO --}}
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover"
+    >
+        <source src="{{ asset('videos/video.mp4') }}" type="video/mp4">
+    </video>
 
-    {{-- DECORACIÓN --}}
-    <div class="absolute top-20 left-10 w-52 h-72 bg-[#c24e30]/10 rounded-3xl rotate-[-8deg] shadow-2xl hidden lg:block"></div>
-    <div class="absolute bottom-20 right-10 w-52 h-72 bg-[#2e6b2e]/10 rounded-3xl rotate-[8deg] shadow-2xl hidden lg:block"></div>
+    {{-- OVERLAY OSCURO --}}
+    <div class="absolute inset-0 bg-black/70"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto text-center">
+    {{-- GLOW --}}
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
 
-        {{-- BADGE --}}
-        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#c24e30]/40 text-[#c24e30] bg-[#fdfaf4]/70 backdrop-blur mb-8 text-sm tracking-wide">
-            ✦ La mayor plataforma de animación global
-        </div>
+    {{-- CONTENT --}}
+    <div class="relative z-10 px-6 max-w-5xl mx-auto">
 
-        {{-- TITULO --}}
-        <h1 class="text-5xl md:text-7xl font-serif leading-tight mb-6">
+        
 
-            <span class="text-[#2d1f0e]">
-                Descubre el mundo
-            </span>
+        {{-- TITLE --}}
+<img
+    src="{{ asset('images/logo/logo.png') }}"
+    alt="ANIIFANS"
+    style="width: 290px; filter: brightness(0) invert(1);"
+    class="mx-auto block"
+/>
 
-            <br>
+        {{-- DESCRIPTION --}}
+<p class="text-sm md:text-base text-white/90 leading-relaxed max-w-xl mx-auto mb-8">
+            Explora, analiza y debate sobre las mejores películas
+            de animación del mundo. Ghibli, Pixar,
+            DreamWorks y mucho más.
 
-            <span class="bg-gradient-to-r from-[#c24e30] to-[#2e6b2e] bg-clip-text text-transparent">
-                de la animación
-            </span>
-
-        </h1>
-
-        {{-- SUB --}}
-        <p class="max-w-2xl mx-auto text-[#5f5143] text-lg leading-relaxed mb-10">
-            Explora películas legendarias, personajes icónicos y compite en
-            trivias mágicas dentro del mayor catálogo de cine animado del mundo.
         </p>
 
-        {{-- BUSCADOR --}}
-        <div class="max-w-2xl mx-auto mb-10">
-
-            <div class="flex items-center bg-[#f0e6cc] rounded-full px-6 py-4 border border-[#c24e30]/20 shadow-lg">
-
-                <span class="text-[#c24e30] mr-3 text-xl">⌕</span>
-
-                <input
-                    type="text"
-                    placeholder="Busca por título, estudio, país o género..."
-                    class="bg-transparent w-full outline-none text-[#2d1f0e] placeholder:text-[#8a7a66]"
-                >
-
-            </div>
-
-        </div>
-
-        {{-- BOTONES --}}
-        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-14">
+        {{-- BUTTONS --}}
+        <div class="flex flex-wrap justify-center gap-4">
 
             <a href="{{ url('/catalogo') }}"
-               class="px-8 py-4 rounded-full bg-[#c24e30] text-white text-lg shadow-xl hover:scale-105 transition">
+   class="px-6 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition duration-300">
 
-                Explorar catálogo
-
-            </a>
-
-            <a href="{{ url('/trivia') }}"
-               class="px-8 py-4 rounded-full border border-[#2d1f0e]/20 text-[#2d1f0e] text-lg hover:bg-[#f0e6cc] transition">
-
-                Jugar trivia →
+                Explorar catálogo ↗
 
             </a>
 
-        </div>
+            <a href="{{ url('/foro') }}"
+   class="px-6 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition duration-300">
 
-        {{-- STATS --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                Ver comunidad ↓
 
-            <div>
-                <div class="text-4xl font-serif text-[#c24e30] mb-2">1,240+</div>
-                <div class="text-[#5f5143] text-sm uppercase tracking-wider">
-                    Películas
-                </div>
-            </div>
-
-            <div>
-                <div class="text-4xl font-serif text-[#c24e30] mb-2">34</div>
-                <div class="text-[#5f5143] text-sm uppercase tracking-wider">
-                    Países
-                </div>
-            </div>
-
-            <div>
-                <div class="text-4xl font-serif text-[#c24e30] mb-2">8,900</div>
-                <div class="text-[#5f5143] text-sm uppercase tracking-wider">
-                    Fans
-                </div>
-            </div>
-
-            <div>
-                <div class="text-4xl font-serif text-[#c24e30] mb-2">52K</div>
-                <div class="text-[#5f5143] text-sm uppercase tracking-wider">
-                    Reseñas
-                </div>
-            </div>
+            </a>
 
         </div>
 
     </div>
 
-</section>
-
-{{-- PELÍCULAS --}}
-<section class="py-24 bg-[#f0e6cc]">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        {{-- TITULO --}}
-        <div class="mb-14">
-
-            <p class="text-[#c24e30] uppercase tracking-[0.3em] text-sm mb-4">
-                // Catálogo
-            </p>
-
-            <h2 class="text-5xl font-serif text-[#2d1f0e]">
-                Películas destacadas
-            </h2>
-
-        </div>
-
-        {{-- GRID --}}
-        <div id="movies-grid"
-             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-
-        </div>
-
-    </div>
+    {{-- FADE BOTTOM --}}
+    <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent"></div>
 
 </section>
 
-{{-- PERSONAJES --}}
-<section class="py-24 bg-[#fdfaf4]">
+    {{-- FADE BOTTOM --}}
+    <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent"></div>
 
-    <div class="max-w-7xl mx-auto px-6">
+</section>
 
-        <div class="flex justify-between items-center mb-14">
+{{-- ═══════════════════════════════════════════
+     ESTUDIOS EN MOVIMIENTO
+════════════════════════════════════════════ --}}
+<section class="relative overflow-hidden py-8 bg-black border-y border-white/10">
 
-            <div>
+    {{-- FONDO DEGRADADO --}}
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-700 via-whiteto-pink-700"></div>
 
-                <p class="text-[#c24e30] uppercase tracking-[0.3em] text-sm mb-4">
-                    // Personajes
-                </p>
+    {{-- GLOW --}}
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-pink-500/20 blur-2xl"></div>
 
-                <h2 class="text-5xl font-serif text-[#2d1f0e]">
-                    Personajes icónicos
-                </h2>
+    {{-- CONTENEDOR --}}
+    <div class="relative w-full overflow-hidden">
 
-            </div>
+        {{-- TRACK --}}
+        <div class="flex animate-marquee min-w-max items-center">
 
-            <a href="{{ url('/personajes') }}"
-               class="text-[#c24e30] hover:underline">
-                Ver todos →
-            </a>
+            @php
+                $studios = [
+                    'PIXAR ✦',
+                    'DREAMWORKS ✦',
+                    'STUDIO GHIBLI ✦',
+                    'DISNEY ✦',
+                    'SONY ANIMATION ✦',
+                    'LAIKA ✦',
+                    'ILLUMINATION ✦',
+                ];
+            @endphp
 
-        </div>
+            {{-- DUPLICADO PARA LOOP --}}
+            @for($i = 0; $i < 2; $i++)
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                @foreach($studios as $studio)
 
-            @for($i = 0; $i < 10; $i++)
+                    <span class="
+                        mx-14
+                        text-sm
+                        md:text-base
+                        font-black
+                        uppercase
+                        tracking-[0.25em]
+                        whitespace-nowrap
+                        bg-gradient-to-r
+                        from-purple-300
+                        via-white
+                        to-pink-300
+                        bg-clip-text
+                        text-transparent
+                        hover:scale-110
+                        transition
+                        duration-300
+                    ">
+                        {{ $studio }}
+                    </span>
 
-                <div class="bg-white rounded-3xl p-6 border border-[#c24e30]/20 hover:-translate-y-2 transition shadow-lg text-center">
-
-                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#c24e30] to-[#2e6b2e] flex items-center justify-center text-4xl mx-auto mb-4">
-                        🎭
-                    </div>
-
-                    <h3 class="font-serif text-xl text-[#2d1f0e] mb-2">
-                        Personaje
-                    </h3>
-
-                    <p class="text-sm text-[#6d5b4d] italic">
-                        Película Legendaria
-                    </p>
-
-                </div>
+                @endforeach
 
             @endfor
 
@@ -197,164 +141,209 @@
 
 </section>
 
-{{-- TRIVIA --}}
-<section class="py-24 bg-[#f0e6cc]">
+<style>
 
-    <div class="max-w-6xl mx-auto px-6">
+@keyframes marquee {
 
-        <div class="grid lg:grid-cols-2 gap-12">
+    0% {
+        transform: translateX(0);
+    }
 
-            {{-- PREGUNTA --}}
-            <div class="bg-[#fdfaf4] rounded-[30px] p-10 border border-[#c24e30]/20 shadow-xl">
+    100% {
+        transform: translateX(-50%);
+    }
 
-                <div class="flex justify-between items-center mb-6">
+}
 
-                    <span class="text-[#5f5143] italic">
-                        Pregunta 3 de 10
-                    </span>
+.animate-marquee {
 
-                    <span class="bg-[#c24e30] text-white px-4 py-1 rounded-full text-sm">
-                        +150 pts
-                    </span>
+    width: max-content;
 
-                </div>
+    animation:
+        marquee 18s linear infinite;
 
-                <h3 class="font-serif text-3xl text-[#2d1f0e] mb-8 leading-relaxed">
-                    ¿Qué estudio creó “Spirited Away”?
-                </h3>
+}
 
-                <div class="space-y-4">
+</style>
 
-                    @foreach(['Pixar', 'Studio Ghibli', 'DreamWorks', 'Mappa'] as $option)
 
-                        <button class="w-full text-left px-6 py-4 rounded-2xl border border-[#c24e30]/20 hover:bg-[#f0e6cc] transition">
+{{-- ═══════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════════ --}}
+<section class="py-28 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
 
-                            {{ $option }}
+        <div class="text-center mb-16">
+            <p class="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">¿Qué es AniFans?</p>
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight">
+                Más que una plataforma
+            </h2>
+            <p class="text-gray-500 mt-4 max-w-lg mx-auto leading-relaxed">
+                Un lugar donde los fans descubren, debaten y valoran películas.
+            </p>
+        </div>
 
-                        </button>
+        <div class="grid md:grid-cols-3 gap-6">
 
-                    @endforeach
-
-                </div>
-
+            <div class="border border-gray-100 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition">
+                <h3 class="font-bold text-lg mb-2">Catálogo curado</h3>
+                <p class="text-gray-500 text-sm">Películas organizadas por estudio, año y género.</p>
             </div>
 
-            {{-- LEADERBOARD --}}
-            <div class="bg-[#fdfaf4] rounded-[30px] p-10 border border-[#c24e30]/20 shadow-xl">
+            <div class="bg-black text-white rounded-2xl p-8 hover:-translate-y-1 transition">
+                <h3 class="font-bold text-lg mb-2">Comunidad activa</h3>
+                <p class="text-white/60 text-sm">Debates reales entre fans y críticas honestas.</p>
+            </div>
 
-                <h3 class="font-serif text-3xl text-[#2d1f0e] mb-8">
-                    🏆 Clasificación
-                </h3>
-
-                <div class="space-y-5">
-
-                    @for($i = 1; $i <= 5; $i++)
-
-                        <div class="flex items-center justify-between border-b border-[#e7d9bc] pb-4">
-
-                            <div class="flex items-center gap-4">
-
-                                <div class="w-10 h-10 rounded-full bg-[#c24e30]/10 flex items-center justify-center">
-                                    🎖
-                                </div>
-
-                                <div>
-
-                                    <div class="font-serif text-lg">
-                                        Fan #{{ $i }}
-                                    </div>
-
-                                    <div class="text-sm text-[#6d5b4d]">
-                                        España
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div class="text-[#c24e30] font-serif text-xl">
-                                {{ rand(1000, 5000) }}
-                            </div>
-
-                        </div>
-
-                    @endfor
-
-                </div>
-
+            <div class="border border-gray-100 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-lg transition">
+                <h3 class="font-bold text-lg mb-2">Rankings reales</h3>
+                <p class="text-gray-500 text-sm">Lo mejor lo decide la comunidad.</p>
             </div>
 
         </div>
 
     </div>
-
 </section>
 
-{{-- API MOVIES --}}
-<script>
+{{-- ═══════════════════════════════════════════
+     PELÍCULAS DESTACADAS
+════════════════════════════════════════════ --}}
+<section id="destacadas" class="py-28 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
 
-async function loadMovies() {
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <p class="text-xs tracking-[0.2em] uppercase text-gray-400 mb-2">Catálogo</p>
+                <h2 class="text-4xl font-bold">Películas destacadas</h2>
+            </div>
 
-    try {
+            <a href="{{ url('/catalogo') }}"
+               class="text-sm border px-5 py-2 rounded-full hover:bg-black hover:text-white transition hidden md:block">
+                Ver todas →
+            </a>
+        </div>
 
-        const response = await fetch('/AniFans/public/api/movies');
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-        const movies = await response.json();
+            @foreach($movies as $movie)
 
-        const grid = document.getElementById('movies-grid');
+                <a href="{{ url('/catalogo/' . $movie->id) }}"
+                   class="group">
 
-        grid.innerHTML = '';
-
-        movies.forEach(movie => {
-
-            grid.innerHTML += `
-
-                <div class="bg-[#fdfaf4] rounded-[24px] overflow-hidden shadow-xl border border-[#c24e30]/10 hover:-translate-y-2 transition duration-300">
-
-                    <div class="h-80 bg-gradient-to-br from-[#c24e30]/20 to-[#2e6b2e]/20 flex items-center justify-center text-7xl">
-                        🎬
+                    <div class="aspect-[2/3] rounded-xl overflow-hidden bg-gray-200">
+                        <img src="{{ asset($movie->poster_path) }}"
+                             class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
 
-                    <div class="p-6">
+                    <p class="mt-3 text-sm font-semibold group-hover:underline">
+                        {{ $movie->title }}
+                    </p>
 
-                        <h3 class="font-serif text-2xl text-[#2d1f0e] mb-2">
-                            ${movie.title}
-                        </h3>
+                </a>
 
-                        <p class="text-sm text-[#6d5b4d] mb-4">
-                            ${movie.year} · ${movie.studio}
-                        </p>
+            @endforeach
 
-                        <div class="flex justify-between items-center">
+        </div>
 
-                            <span class="bg-[#2e6b2e]/10 text-[#2e6b2e] px-3 py-1 rounded-full text-sm">
-                                ★ ${movie.rating}
-                            </span>
+    </div>
+</section>
 
-                            <button class="text-[#c24e30] hover:scale-110 transition">
-                                ♥
-                            </button>
+{{-- ═══════════════════════════════════════════
+     COMUNIDAD 
+════════════════════════════════════════════ --}}
+<section class="py-28 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
 
-                        </div>
+        <div class="text-center mb-16">
+            <p class="text-xs tracking-[0.2em] uppercase text-gray-400 mb-4">Comunidad</p>
+            <h2 class="text-4xl font-bold">Actividad reciente</h2>
+        </div>
 
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="border rounded-2xl p-6 hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/40?img=12" class="rounded-full w-9 h-9">
+                    <div>
+                        <p class="font-semibold text-sm">usuario1</p>
+                        <p class="text-xs text-gray-400">comentó Shrek</p>
                     </div>
-
                 </div>
 
-            `;
+                <p class="text-gray-600 text-sm italic">
+                    “Mejor comedia de animación sin discusión.”
+                </p>
+            </div>
 
-        });
+            <div class="border rounded-2xl p-6 hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/40?img=32" class="rounded-full w-9 h-9">
+                    <div>
+                        <p class="font-semibold text-sm">usuario2</p>
+                        <p class="text-xs text-gray-400">vio Chihiro</p>
+                    </div>
+                </div>
 
-    } catch(error) {
+                <p class="text-gray-600 text-sm italic">
+                    “Una obra maestra visual.”
+                </p>
+            </div>
 
-        console.error(error);
+            <div class="border rounded-2xl p-6 hover:shadow-md transition">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://i.pravatar.cc/40?img=45" class="rounded-full w-9 h-9">
+                    <div>
+                        <p class="font-semibold text-sm">admin</p>
+                        <p class="text-xs text-gray-400">AniFans</p>
+                    </div>
+                </div>
 
-    }
+                <p class="text-gray-600 text-sm italic">
+                    “El cine animado es arte puro.”
+                </p>
+            </div>
 
-}
+        </div>
 
-loadMovies();
+        <div class="text-center mt-12">
+            <a href="{{ url('/foro') }}"
+               class="inline-block px-6 py-2 border rounded-full hover:bg-black hover:text-white transition">
+                Ver foro →
+            </a>
+        </div>
 
-</script>
+    </div>
+</section>
+
+{{-- ═══════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════════ --}}
+<section class="py-32 px-6 bg-black text-white text-center">
+
+    <h2 class="text-4xl md:text-6xl font-bold mb-6">
+        Empieza tu viaje en AniFans
+    </h2>
+
+    <p class="text-white/50 mb-10 max-w-lg mx-auto">
+        Valora películas, comenta y descubre nuevas joyas.
+    </p>
+
+    @auth
+        <a href="{{ url('/catalogo') }}"
+           class="px-10 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition">
+            Ir al catálogo
+        </a>
+    @else
+        <div class="flex gap-3 justify-center">
+            <a href="{{ route('register') }}" class="px-8 py-3 bg-white text-black rounded-full">
+                Crear cuenta
+            </a>
+            <a href="{{ route('login') }}" class="px-8 py-3 border border-white/20 rounded-full">
+                Login
+            </a>
+        </div>
+    @endauth
+
+</section>
 
 @endsection

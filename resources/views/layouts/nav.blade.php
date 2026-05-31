@@ -1,110 +1,95 @@
-<nav id="navbar"
-    class="fixed top-0 w-full z-50 transition-all duration-300
-           bg-[#fdfaf4]/80 backdrop-blur border-b border-[#c24e30]/20">
+<nav class="fixed top-0 w-full h-16 z-50 bg-white border-b border-gray-200">
 
-    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
 
         {{-- LOGO --}}
-        <a href="{{ url('/') }}"
-           class="text-2xl font-serif text-[#c24e30] tracking-wide">
-            AniFans
+        <a href="{{ url('/') }}" class="flex items-center">
+            <img src="{{ asset('images/logo/logo.png') }}"
+                 class="h-10 w-auto object-contain">
         </a>
 
-        {{-- LINKS DESKTOP --}}
-        <div class="hidden md:flex gap-6 text-sm font-medium">
+        {{-- LINKS --}}
+        <div class="hidden lg:flex items-center gap-8 text-sm text-gray-700">
 
-            @php
-                $current = request()->path();
-            @endphp
+            <a href="{{ url('/') }}" class="hover:text-black transition">Inicio</a>
+            <a href="{{ url('/catalogo') }}" class="hover:text-black transition">Catálogo</a>
+            <a href="{{ url('/foro') }}" class="hover:text-black transition">Foro</a>
 
-            <a href="{{ url('/catalogo') }}"
-               class="{{ str_contains($current,'catalogo') ? 'text-[#c24e30] border-b border-[#c24e30]' : 'text-[#2d1f0e]' }}
-                      hover:text-[#c24e30] transition pb-1">
-                Catálogo
-            </a>
-
-            <a href="{{ url('/personajes') }}"
-               class="{{ str_contains($current,'personajes') ? 'text-[#c24e30] border-b border-[#c24e30]' : 'text-[#2d1f0e]' }}
-                      hover:text-[#c24e30] transition pb-1">
-                Personajes
-            </a>
-
-            <a href="{{ url('/trivia') }}"
-               class="{{ str_contains($current,'trivia') ? 'text-[#c24e30] border-b border-[#c24e30]' : 'text-[#2d1f0e]' }}
-                      hover:text-[#c24e30] transition pb-1">
-                Trivia
-            </a>
-
-            <a href="{{ url('/paises') }}"
-               class="{{ str_contains($current,'paises') ? 'text-[#c24e30] border-b border-[#c24e30]' : 'text-[#2d1f0e]' }}
-                      hover:text-[#c24e30] transition pb-1">
-                Países
-            </a>
-
-            <a href="{{ url('/perfil') }}"
-               class="{{ str_contains($current,'perfil') ? 'text-[#c24e30] border-b border-[#c24e30]' : 'text-[#2d1f0e]' }}
-                      hover:text-[#c24e30] transition pb-1">
-                Mi Perfil
-            </a>
+            @auth
+                <a href="{{ url('/trivia') }}" class="hover:text-black transition">Trivia</a>
+            @endauth
 
         </div>
 
-        {{-- BOTONES LOGIN (DESKTOP) --}}
-        <div class="hidden md:flex gap-3">
+        {{-- DERECHA --}}
+        <div class="flex items-center gap-3">
 
-            <a href="{{ url('/login') }}"
-               class="px-4 py-1 border border-[#c24e30] text-[#c24e30]
-                      rounded-full text-sm hover:bg-[#c24e30] hover:text-[#fdfaf4]
-                      transition">
-                Iniciar sesión
-            </a>
+            @guest
 
-            <a href="{{ url('/register') }}"
-               class="px-4 py-1 bg-[#c24e30] text-[#fdfaf4]
-                      rounded-full text-sm hover:opacity-90 transition">
-                Registrarse
-            </a>
+                <a href="{{ route('login') }}"
+                   class="px-5 py-2 text-sm border border-gray-300 rounded-full hover:bg-black hover:text-white transition">
+                    Iniciar sesión
+                </a>
+
+                <a href="{{ route('register') }}"
+                   class="px-5 py-2 text-sm bg-black text-white rounded-full hover:bg-gray-800 transition">
+                    Crear cuenta
+                </a>
+
+            @endguest
+
+            @auth
+
+                <div class="relative">
+
+                    {{-- BOTÓN USUARIO --}}
+                    <button onclick="document.getElementById('dropdown').classList.toggle('hidden')"
+                            class="flex items-center gap-3 px-2 py-1 rounded-full hover:bg-gray-100 transition">
+
+                        <div class="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center text-sm font-bold">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                        </div>
+
+                        <span class="hidden md:block text-sm font-medium">
+                            {{ auth()->user()->name }}
+                        </span>
+
+                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+
+                    </button>
+
+                    {{-- DROPDOWN --}}
+                    <div id="dropdown"
+                         class="absolute right-0 mt-3 w-52 bg-white border border-gray-200 rounded-xl shadow-lg hidden overflow-hidden">
+
+                        {{-- PERFIL --}}
+                        <a href="{{ route('perfil.show', auth()->user()->id) }}"
+                                                     class="block px-4 py-3 text-sm hover:bg-gray-50">
+Mi perfil
+                        </a>
+
+
+                        
+
+                        {{-- LOGOUT --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-red-50">
+                                Cerrar sesión
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            @endauth
 
         </div>
-
-        {{-- HAMBURGUESA MOBILE --}}
-        <button id="menuBtn"
-            class="md:hidden text-[#c24e30] text-2xl">
-            ☰
-        </button>
-
-    </div>
-
-    {{-- MENÚ MOBILE --}}
-    <div id="mobileMenu"
-         class="hidden md:hidden flex flex-col gap-3 px-6 pb-4 text-sm">
-
-        <a class="text-[#2d1f0e]" href="{{ url('/catalogo') }}">Catálogo</a>
-        <a class="text-[#2d1f0e]" href="{{ url('/personajes') }}">Personajes</a>
-        <a class="text-[#2d1f0e]" href="{{ url('/trivia') }}">Trivia</a>
-        <a class="text-[#2d1f0e]" href="{{ url('/paises') }}">Países</a>
-        <a class="text-[#2d1f0e]" href="{{ url('/perfil') }}">Perfil</a>
 
     </div>
 </nav>
 
-{{-- SCRIPT SIMPLE --}}
-<script>
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('mobileMenu');
-
-    btn?.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-
-    // efecto scroll navbar
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-
-        if (window.scrollY > 20) {
-            nav.classList.add('shadow-md', 'bg-[#fdfaf4]');
-        } else {
-            nav.classList.remove('shadow-md', 'bg-[#fdfaf4]');
-        }
-    });
-</script>
+<div class="h-16"></div>

@@ -16,94 +16,58 @@ class TriviaController extends Controller
 
     public function getQuestions(Request $request)
     {
-        $limit = $request->get('limit', 10);
-        $difficulty = $request->get('difficulty');
-
-        $query = TriviaQuestion::query();
-
-        if ($difficulty) {
-            $query->where('difficulty', $difficulty);
-        }
-
-        $questions = $query->inRandomOrder()->limit($limit)->get();
-
-        return response()->json($questions);
+        return response()->json(
+            TriviaQuestion::select(
+                'id',
+                'question',
+                'option_a',
+                'option_b',
+                'option_c',
+                'option_d',
+                'correct_answer'
+            )
+            ->inRandomOrder()
+            ->limit($request->limit ?? 10)
+            ->get()
+        );
     }
 
     public function submitAnswers(Request $request)
     {
-        if (!Auth::check()) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
+        $answers = $request->input('answers', []);
 
-        $validated = $request->validate([
-            'answers' => 'required|array',
-            'answers.*.question_id' => 'required|exists:trivia_questions,id',
-            'answers.*.answer' => 'required|in:a,b,c,d',
-        ]);
+        $correct = 0;
 
-        $correctAnswers = 0;
-        $totalQuestions = count($validated['answers']);
+        foreach ($answers as $a) {
+            $q = TriviaQuestion::find($a['question_id']);
 
-        foreach ($validated['answers'] as $answer) {
-            $question = TriviaQuestion::findOrFail($answer['question_id']);
-
-            if ($question->correct_answer === $answer['answer']) {
-                $correctAnswers++;
+            if ($q && $q->correct_answer === $a['answer']) {
+                $correct++;
             }
         }
 
-        $percentage = ($correctAnswers / $totalQuestions) * 100;
-        $score = $correctAnswers * 10;
+        $score = $correct * 10;
 
         $result = TriviaResult::create([
-            'user_id' => Auth::id(),
+            'user_id' => auth()->id(),
             'score' => $score,
-            'correct_answers' => $correctAnswers,
-            'total_questions' => $totalQuestions,
-            'percentage' => $percentage,
+            'correct_answers' => $correct,
+            'total_questions' => count($answers),
+            'percentage' => ($correct / max(count($answers), 1)) * 100,
+            'played_at' => now(),
         ]);
 
         return response()->json([
-            'message' => 'Trivia completed!',
-            'result' => $result,
-            'correct_answers' => $correctAnswers,
-            'total_questions' => $totalQuestions,
-            'percentage' => $percentage,
             'score' => $score,
+            'result' => $result
         ]);
     }
 
-    public function getLeaderboard(Request $request)
+    public function getLeaderboard()
     {
-        $limit = $request->get('limit', 10);
-
-        $leaderboard = TriviaResult::with('user')
+        return TriviaResult::with('user')
             ->orderByDesc('score')
-            ->limit($limit)
+            ->limit(10)
             ->get();
-
-        if ($request->wantsJson()) {
-            return response()->json($leaderboard);
-        }
-
-        return view('pages.trivia-leaderboard', compact('leaderboard'));
-    }
-
-    public function getUserResults()
-    {
-        if (!Auth::check()) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
-
-        $results = TriviaResult::where('user_id', Auth::id())
-            ->orderByDesc('created_at')
-            ->paginate(10);
-
-        if (request()->wantsJson()) {
-            return response()->json($results);
-        }
-
-        return view('pages.trivia-results', compact('results'));
     }
 }

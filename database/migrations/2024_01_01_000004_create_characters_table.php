@@ -6,20 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('characters', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('movie_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->string('image')->nullable();
-            $table->text('description')->nullable();
-            $table->timestamps();
-            $table->index('movie_id');
-            $table->index('name');
-        });
+       Schema::create('characters', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->text('description')->nullable();
+    $table->string('image')->nullable();
+    $table->foreignId('movie_id')->constrained()->onDelete('cascade');
+    $table->timestamps();
+});
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('characters');

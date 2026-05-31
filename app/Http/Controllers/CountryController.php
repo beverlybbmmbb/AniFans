@@ -11,9 +11,11 @@ class CountryController extends Controller
 {
     public function index(Request $request)
     {
-        $countries = Country::withCount('movies')
-            ->orderByDesc('movies_count')
-            ->get();
+           $countries = Country::withCount('movies')
+        ->orderByDesc('movies_count')
+        ->get();
+
+    return view('pages.paises', compact('countries'));
 
         if ($request->wantsJson()) {
             return response()->json($countries);

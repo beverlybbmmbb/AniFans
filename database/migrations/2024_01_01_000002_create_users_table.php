@@ -10,17 +10,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('avatar')->default('https://ui-avatars.com/api/?name=User');
-            $table->text('bio')->nullable();
-            $table->enum('role', ['user', 'admin'])->default('user');
-            $table->rememberToken();
-            $table->timestamps();
-            $table->index('email');
-            $table->index('role');
+$table->string('username')->unique();
+$table->string('email')->unique();
+$table->timestamp('email_verified_at')->nullable();
+$table->string('password');
+$table->string('avatar')->default('https://ui-avatars.com/api/?name=User');
+$table->text('bio')->nullable();
+$table->enum('role', ['user', 'admin'])->default('user');
+
+$table->integer('age')->nullable();
+$table->string('gender')->nullable();
+$table->integer('xp')->default(0);
+$table->integer('level')->default(1);
+$table->integer('streak')->default(0);
+$table->timestamp('last_played_at')->nullable();
+$table->rememberToken();
+$table->timestamps();
         });
     }
 

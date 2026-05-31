@@ -10,4 +10,15 @@ class Favorite extends Model
         'user_id',
         'movie_id'
     ];
+
+    // 🔥 ESTO ES LO QUE TE FALTA
+    public function movie()
+    {
+        return $this->belongsTo(Movie::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

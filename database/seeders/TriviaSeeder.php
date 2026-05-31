@@ -10,8 +10,9 @@ class TriviaSeeder extends Seeder
     public function run(): void
     {
         $questions = [
+
             [
-                'question' => 'In Spirited Away, what is Chihiro\'s new name in the bathhouse?',
+                'question' => 'En El Viaje de Chihiro, ¿cómo se llama Chihiro en la casa de baños?',
                 'option_a' => 'Yuki',
                 'option_b' => 'Sen',
                 'option_c' => 'Hana',
@@ -19,8 +20,9 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'b',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'Which studio created Spirited Away?',
+                'question' => '¿Qué estudio creó El Viaje de Chihiro?',
                 'option_a' => 'Toei Animation',
                 'option_b' => 'Studio Ghibli',
                 'option_c' => 'Madhouse',
@@ -28,26 +30,29 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'b',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'What is the title of the film where two people swap bodies?',
-                'option_a' => 'Garden of Words',
-                'option_b' => 'Weathering With You',
+                'question' => '¿Cuál es la película donde dos personas intercambian cuerpos?',
+                'option_a' => 'El jardín de las palabras',
+                'option_b' => 'El tiempo contigo',
                 'option_c' => 'Your Name',
                 'option_d' => 'A Silent Voice',
                 'correct_answer' => 'c',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'In Howl\'s Moving Castle, who is the main antagonist?',
+                'question' => 'En El Castillo Ambulante, ¿quién es el antagonista principal?',
                 'option_a' => 'Howl',
                 'option_b' => 'Calcifer',
-                'option_c' => 'Witch of the Waste',
-                'option_d' => 'Turnip Head',
+                'option_c' => 'La Bruja del Páramo',
+                'option_d' => 'Cabeza de Nabo',
                 'correct_answer' => 'c',
                 'difficulty' => 'medium',
             ],
+
             [
-                'question' => 'What year was Akira released?',
+                'question' => '¿En qué año se estrenó Akira?',
                 'option_a' => '1985',
                 'option_b' => '1987',
                 'option_c' => '1988',
@@ -55,26 +60,29 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'c',
                 'difficulty' => 'medium',
             ],
+
             [
-                'question' => 'Which country is known as the home of Studio Ghibli?',
-                'option_a' => 'South Korea',
-                'option_b' => 'Japan',
+                'question' => '¿Qué país es conocido como la cuna de Studio Ghibli?',
+                'option_a' => 'Corea del Sur',
+                'option_b' => 'Japón',
                 'option_c' => 'China',
-                'option_d' => 'Thailand',
+                'option_d' => 'Tailandia',
                 'correct_answer' => 'b',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'In Coco, what instrument does Miguel play?',
+                'question' => 'En Coco, ¿qué instrumento toca Miguel?',
                 'option_a' => 'Piano',
-                'option_b' => 'Violin',
-                'option_c' => 'Guitar',
-                'option_d' => 'Drums',
+                'option_b' => 'Violín',
+                'option_c' => 'Guitarra',
+                'option_d' => 'Batería',
                 'correct_answer' => 'c',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'What studio created Coco?',
+                'question' => '¿Qué estudio creó la película Coco?',
                 'option_a' => 'DreamWorks',
                 'option_b' => 'Pixar Animation',
                 'option_c' => 'Disney Animation',
@@ -82,8 +90,9 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'b',
                 'difficulty' => 'easy',
             ],
+
             [
-                'question' => 'In Your Name, what is the name of the comet?',
+                'question' => 'En Your Name, ¿cómo se llama el cometa?',
                 'option_a' => 'Tiamat',
                 'option_b' => 'Tenki',
                 'option_c' => 'Kimi',
@@ -91,8 +100,9 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'a',
                 'difficulty' => 'hard',
             ],
+
             [
-                'question' => 'Which Pixar film tells the story of life\'s adventures?',
+                'question' => '¿Qué película de Pixar cuenta la historia de las aventuras de la vida?',
                 'option_a' => 'Up',
                 'option_b' => 'Inside Out',
                 'option_c' => 'Toy Story',
@@ -100,8 +110,9 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'a',
                 'difficulty' => 'medium',
             ],
+
             [
-                'question' => 'What is the name of the boy in The Boy and The Heron?',
+                'question' => '¿Cómo se llama el niño en El Niño y la Garza?',
                 'option_a' => 'Toto',
                 'option_b' => 'Mahito',
                 'option_c' => 'Kentaro',
@@ -109,26 +120,29 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'b',
                 'difficulty' => 'hard',
             ],
+
             [
-                'question' => 'Which film features a warrior searching for the last dragon?',
+                'question' => '¿Qué película trata sobre un guerrero que busca al último dragón?',
                 'option_a' => 'Moana',
                 'option_b' => 'Encanto',
-                'option_c' => 'Raya and The Last Dragon',
+                'option_c' => 'Raya y el Último Dragón',
                 'option_d' => 'Frozen',
                 'correct_answer' => 'c',
                 'difficulty' => 'medium',
             ],
+
             [
-                'question' => 'In Spirited Away, what does Haku\'s true form resemble?',
-                'option_a' => 'A wolf',
-                'option_b' => 'A dragon',
-                'option_c' => 'A phoenix',
-                'option_d' => 'A fox',
+                'question' => 'En El Viaje de Chihiro, ¿en qué se transforma Haku realmente?',
+                'option_a' => 'Un lobo',
+                'option_b' => 'Un dragón',
+                'option_c' => 'Un fénix',
+                'option_d' => 'Un zorro',
                 'correct_answer' => 'b',
                 'difficulty' => 'hard',
             ],
+
             [
-                'question' => 'Which studio created Shaun the Sheep Movie?',
+                'question' => '¿Qué estudio creó la película Shaun el Cordero?',
                 'option_a' => 'Aardman Animations',
                 'option_b' => 'Studio Ghibli',
                 'option_c' => 'Laika',
@@ -136,12 +150,13 @@ class TriviaSeeder extends Seeder
                 'correct_answer' => 'a',
                 'difficulty' => 'medium',
             ],
+
             [
-                'question' => 'What does Zootopia primarily explore?',
-                'option_a' => 'Time travel',
-                'option_b' => 'Prejudice and diversity',
-                'option_c' => 'Space exploration',
-                'option_d' => 'Ancient history',
+                'question' => '¿Qué explora principalmente Zootopia?',
+                'option_a' => 'Viajes en el tiempo',
+                'option_b' => 'Prejuicio y diversidad',
+                'option_c' => 'Exploración espacial',
+                'option_d' => 'Historia antigua',
                 'correct_answer' => 'b',
                 'difficulty' => 'medium',
             ],

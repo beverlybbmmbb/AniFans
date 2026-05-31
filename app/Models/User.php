@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -18,6 +16,8 @@ class User extends Authenticatable
         'avatar',
         'bio',
         'role',
+        'age',
+        'gender',
     ];
 
     protected $hidden = [
@@ -25,43 +25,34 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+   
+public function favorites()
+{
+    return $this->hasMany(Favorite::class);
+}
 
-    public function favorites(): BelongsToMany
-    {
-        return $this->belongsToMany(Movie::class, 'favorites');
-    }
+public function reviews()
+{
+    return $this->hasMany(Review::class);
+}
 
-    public function reviews(): HasMany
-    {
-        return $this->hasMany(Review::class);
-    }
+public function likes()
+{
+    return $this->hasMany(Like::class);
+}
 
-    public function triviaResults(): HasMany
-    {
-        return $this->hasMany(TriviaResult::class);
-    }
+public function triviaResults()
+{
+    return $this->hasMany(TriviaResult::class);
+}
 
-    public function isAdmin(): bool
+    // PRO METHOD (RECOMENDADO)
+    public function isAdmin()
     {
         return $this->role === 'admin';
     }
 
-    public function isFavoritedMovie(Movie $movie): bool
-    {
-        return $this->favorites()->where('movie_id', $movie->id)->exists();
-    }
+ 
 
-    public function toggleFavorite(Movie $movie): void
-    {
-        if ($this->isFavoritedMovie($movie)) {
-            $this->favorites()->detach($movie->id);
-            $movie->decrement('favorite_count');
-        } else {
-            $this->favorites()->attach($movie->id);
-            $movie->increment('favorite_count');
-        }
-    }
+
 }

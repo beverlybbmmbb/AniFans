@@ -6,13 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-    protected $fillable = [
-        'name',
-        'code'
-    ];
-
-    public function movies()
-    {
-        return $this->hasMany(Movie::class);
-    }
+    //
 }
