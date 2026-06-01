@@ -69,7 +69,6 @@
     {{-- FADE BOTTOM --}}
     <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent"></div>
 
-</section>
 
     {{-- FADE BOTTOM --}}
     <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent"></div>
