@@ -147,7 +147,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'El Gato con Botas: El Último Deseo',
                 'synopsis' => 'El Gato con Botas busca restaurar sus vidas perdidas.',
-                'poster_path' => 'images/movies/el-gato-con-botas-el-ultimo-deseo.webp',
+                'poster_path' => 'images/movies/el-gato-con-botas-ultimo-deseo.webp',
                 'release_year' => 2022,
                 'duration' => 102,
                 'rating' => 9.1,
@@ -216,17 +216,6 @@ class MovieSeeder extends Seeder
                 'country_id' => 4,
             ],
 
-            [
-                'title' => 'Klaus',
-                'synopsis' => 'Un cartero cambia una ciudad con actos de bondad.',
-                'poster_path' => 'images/movies/klaus.webp',
-                'release_year' => 2019,
-                'duration' => 96,
-                'rating' => 9.0,
-                'studio' => 'Netflix',
-                'genre' => 'Navidad',
-                'country_id' => 3,
-            ],
 
             [
                 'title' => 'Fantasia',
@@ -363,7 +352,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Las Guerreras del K-Pop',
                 'synopsis' => 'Grupo de chicas con poderes enfrentan fuerzas oscuras.',
-                'poster_path' => 'images/movies/las-guerreras-del-k-pop.webp',
+                'poster_path' => 'images/movies/las-guerreras-del-kpop.webp',
                 'release_year' => 2024,
                 'duration' => 110,
                 'rating' => 8.7,
