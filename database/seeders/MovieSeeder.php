@@ -27,7 +27,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'El Castillo Ambulante',
                 'synopsis' => 'Una joven maldecida entra en el mundo del mago Howl.',
-                'poster_path' => 'images/movies/elcastilloambulante.webp',
+                'poster_path' => 'images/movies/el-castillo-ambulante.webp',
                 'release_year' => 2004,
                 'duration' => 119,
                 'rating' => 9.2,
@@ -39,7 +39,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Pesadilla Antes de Navidad',
                 'synopsis' => 'Jack Skellington descubre la Navidad.',
-                'poster_path' => 'images/movies/pesadilla antes de navidad.webp',
+                'poster_path' => 'images/movies/pesadilla-antes-de-navidad.webp',
                 'release_year' => 1993,
                 'duration' => 76,
                 'rating' => 9.0,
@@ -51,7 +51,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Shrek',
                 'synopsis' => 'Un ogro se embarca en una misión para rescatar a una princesa.',
-                'poster_path' => 'images/movies/Shrek.webp',
+                'poster_path' => 'images/movies/shrek.webp',
                 'release_year' => 2001,
                 'duration' => 90,
                 'rating' => 8.9,
@@ -63,7 +63,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Shrek 2',
                 'synopsis' => 'Shrek conoce a los padres de Fiona.',
-                'poster_path' => 'images/movies/Shrek2.webp',
+                'poster_path' => 'images/movies/shrek-2.webp',
                 'release_year' => 2004,
                 'duration' => 93,
                 'rating' => 8.8,
@@ -75,7 +75,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Shrek Tercero',
                 'synopsis' => 'Shrek debe encontrar al heredero del trono.',
-                'poster_path' => 'images/movies/Shrek3.webp',
+                'poster_path' => 'images/movies/shrek-3.webp',
                 'release_year' => 2007,
                 'duration' => 93,
                 'rating' => 7.8,
@@ -87,7 +87,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Shrek para Siempre',
                 'synopsis' => 'Shrek entra en una realidad alternativa.',
-                'poster_path' => 'images/movies/Shrek4.webp',
+                'poster_path' => 'images/movies/shrek-4.webp',
                 'release_year' => 2010,
                 'duration' => 93,
                 'rating' => 7.6,
@@ -99,7 +99,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'La Princesa Mononoke',
                 'synopsis' => 'Una guerra entre humanos y espíritus del bosque.',
-                'poster_path' => 'images/movies/LaprincesaMononoke.webp',
+                'poster_path' => 'images/movies/la-princesa-mononoke.webp',
                 'release_year' => 1997,
                 'duration' => 134,
                 'rating' => 9.5,
@@ -111,7 +111,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Polar Express',
                 'synopsis' => 'Un niño viaja en un tren mágico al Polo Norte.',
-                'poster_path' => 'images/movies/polarexpress.webp',
+                'poster_path' => 'images/movies/polar-express.webp',
                 'release_year' => 2004,
                 'duration' => 100,
                 'rating' => 8.4,
@@ -123,7 +123,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'La Novia Cadáver',
                 'synopsis' => 'Un hombre se casa accidentalmente con una novia muerta.',
-                'poster_path' => 'images/movies/La novia cadáver.webp',
+                'poster_path' => 'images/movies/la-novia-cadaver.webp',
                 'release_year' => 2005,
                 'duration' => 77,
                 'rating' => 8.8,
@@ -135,7 +135,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'La Tumba de las Luciérnagas',
                 'synopsis' => 'Dos hermanos sobreviven en Japón durante la guerra.',
-                'poster_path' => 'images/movies/LA tumba de las luciérnagas.webp',
+                'poster_path' => 'images/movies/la-tumba-de-las-luciernagas.webp',
                 'release_year' => 1988,
                 'duration' => 89,
                 'rating' => 9.7,
@@ -147,7 +147,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'El Gato con Botas: El Último Deseo',
                 'synopsis' => 'El Gato con Botas busca restaurar sus vidas perdidas.',
-                'poster_path' => 'images/movies/elgatobotassultimodeseo.webp',
+                'poster_path' => 'images/movies/el-gato-con-botas-el-ultimo-deseo.webp',
                 'release_year' => 2022,
                 'duration' => 102,
                 'rating' => 9.1,
@@ -171,7 +171,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Mary and Max',
                 'synopsis' => 'Una amistad entre dos personas por cartas.',
-                'poster_path' => 'images/movies/mary and max.webp',
+                'poster_path' => 'images/movies/mary-and-max.webp',
                 'release_year' => 2009,
                 'duration' => 92,
                 'rating' => 9.0,
@@ -195,7 +195,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Song of the Sea',
                 'synopsis' => 'Dos hermanos descubren criaturas del folclore irlandés.',
-                'poster_path' => 'images/movies/song of the sea.webp',
+                'poster_path' => 'images/movies/song-of-the-sea.webp',
                 'release_year' => 2014,
                 'duration' => 93,
                 'rating' => 9.1,
@@ -243,7 +243,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'The Iron Giant',
                 'synopsis' => 'Un niño se hace amigo de un robot gigante.',
-                'poster_path' => 'images/movies/theirongiant.webp',
+                'poster_path' => 'images/movies/the-iron-giant.webp',
                 'release_year' => 1999,
                 'duration' => 86,
                 'rating' => 9.3,
@@ -255,7 +255,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Spider-Man: Un Nuevo Universo',
                 'synopsis' => 'Miles Morales descubre el multiverso.',
-                'poster_path' => 'images/movies/spiderman.webp',
+                'poster_path' => 'images/movies/spider-man.webp',
                 'release_year' => 2018,
                 'duration' => 117,
                 'rating' => 9.4,
@@ -279,7 +279,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Nausicaä del Valle del Viento',
                 'synopsis' => 'Una princesa intenta salvar su mundo.',
-                'poster_path' => 'images/movies/NausicaädelValledelViento.webp',
+                'poster_path' => 'images/movies/nausicaa-del-valle-del-viento.webp',
                 'release_year' => 1984,
                 'duration' => 117,
                 'rating' => 9.4,
@@ -303,7 +303,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Ghost in the Shell',
                 'synopsis' => 'Una cyborg investiga crimenes digitales.',
-                'poster_path' => 'images/movies/ghostintheshell.webp',
+                'poster_path' => 'images/movies/ghost-in-the-shell.webp',
                 'release_year' => 1995,
                 'duration' => 83,
                 'rating' => 9.0,
@@ -315,7 +315,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Perfect Blue',
                 'synopsis' => 'Una idol pierde la cordura entre realidad y ficción.',
-                'poster_path' => 'images/movies/perfectblue.webp',
+                'poster_path' => 'images/movies/perfect-blue.webp',
                 'release_year' => 1997,
                 'duration' => 81,
                 'rating' => 9.1,
@@ -339,7 +339,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Your Name',
                 'synopsis' => 'Dos jóvenes intercambian cuerpos.',
-                'poster_path' => 'images/movies/your name.webp',
+                'poster_path' => 'images/movies/your-name.webp',
                 'release_year' => 2016,
                 'duration' => 106,
                 'rating' => 9.2,
@@ -363,7 +363,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Las Guerreras del K-Pop',
                 'synopsis' => 'Grupo de chicas con poderes enfrentan fuerzas oscuras.',
-                'poster_path' => 'images/movies/lasguerrerasdekpop.webp',
+                'poster_path' => 'images/movies/las-guerreras-del-k-pop.webp',
                 'release_year' => 2024,
                 'duration' => 110,
                 'rating' => 8.7,
