@@ -11,11 +11,11 @@
 
     <div class="mt-3 flex flex-wrap gap-4 text-sm md:text-lg">
 
-        <div>⏱ Tiempo: <span id="timer">60</span>s</div>
-        <div>⭐ Puntos: <span id="score">0</span></div>
+        <div>Tiempo: <span id="timer">60</span>s</div>
+        <div> Puntos: <span id="score">0</span></div>
 
-        <div class="text-green-400">✔ Correctas: <span id="correct">0</span></div>
-        <div class="text-red-400">✖ Fallos: <span id="wrong">0</span></div>
+        <div class="text-green-400"> Correctas: <span id="correct">0</span></div>
+        <div class="text-red-400"> Fallos: <span id="wrong">0</span></div>
 
     </div>
 
@@ -57,7 +57,7 @@
 <div id="finalScreen"
      class="hidden fixed inset-0 bg-black text-white flex flex-col items-center justify-center p-6 text-center">
 
-    <h1 class="text-4xl font-bold mb-4 animate-pulse">🎉 Trivia completada</h1>
+    <h1 class="text-4xl font-bold mb-4 animate-pulse"> Trivia completada</h1>
 
     <p class="text-xl mb-2">Puntuación final:</p>
     <p class="text-5xl font-bold text-green-400" id="finalScore">0</p>
