@@ -15,7 +15,7 @@ class MovieSeeder extends Seeder
             [
                 'title' => 'Vampire Hunter D',
                 'synopsis' => 'Un cazador mitad vampiro lucha en un futuro postapocalíptico.',
-                'poster_path' => 'images/movies/Vampire Hunter D.webp',
+                'poster_path' => 'images/movies/vampire-hunter-d.webp',
                 'release_year' => 1985,
                 'duration' => 80,
                 'rating' => 8.6,
