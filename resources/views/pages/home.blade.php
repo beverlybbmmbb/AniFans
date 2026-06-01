@@ -51,14 +51,14 @@
             <a href="{{ url('/catalogo') }}"
    class="px-6 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition duration-300">
 
-                Explorar catálogo ↗
+                Explorar catálogo 
 
             </a>
 
             <a href="{{ url('/foro') }}"
    class="px-6 py-3 border border-white/20 rounded-full hover:bg-white hover:text-black transition duration-300">
 
-                Ver comunidad ↓
+                Ver comunidad 
 
             </a>
 

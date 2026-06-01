@@ -38,7 +38,7 @@ class AuthController extends Controller
     Auth::login($user);
 
     return redirect('/')
-        ->with('success', 'Registro completado correctamente 🎉');
+        ->with('success', 'Registro completado correctamente ');
 }
 
     public function login(Request $request)
@@ -52,7 +52,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             return redirect('/')
-                ->with('success', 'Bienvenido 👋');
+                ->with('success', 'Bienvenido ');
         }
 
         return back()->withErrors([
