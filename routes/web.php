@@ -104,4 +104,3 @@ Route::middleware('auth')->group(function () {
         ->name('movies.favorite');
 });
 
-Route::get('/catalogo', [MovieController::class, 'catalogo']);
